@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina Homework</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #FFDEE9, #B5FFFC);
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .container {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            color: #FF6F61;
+        }
+        p {
+            font-size: 1.2em;
+        }
+        a {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: #6B5B95;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        a:hover {
+            background: #FF6F61;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Benvenuto nella pagina Homework</h1>
+        <p>Cliccando il pulsante qui sotto vedrai il certificato della pagina</p>
+        <button id="showCertificate">Mostra Certificato</button>
+        <div id="certificate" style="display: none; margin-top: 20px;">
+            <h2>Certificate</h2>
+            <pre id="certificateContent"></pre>
+        </div>
+    </div>
+    <script>
+        document.getElementById('showCertificate').addEventListener('click', function() {
+            var certificate = document.getElementById('certificate');
+            var certificateContent = document.getElementById('certificateContent');
+            if (certificate.style.display === 'none') {
+                fetch('/certificate')
+                    .then(response => response.text())
+                    .then(data => {
+                        certificateContent.textContent = data;
+                        certificate.style.display = 'block';
+                    })
+                    .catch(error => console.error('Error fetching certificate:', error));
+            } else {
+                certificate.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
