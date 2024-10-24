@@ -6,9 +6,6 @@ class CustomHTTPRequestHandler(http.server.SimpleHTTPRequestHandler):
     def do_GET(self):
         if self.path == '/':
             self.path = 'index.html'
-        elif self.path.startswith('/Risorse/Img/'):
-            # Allow access to images in the Risorse/Img directory
-            pass
         elif self.path == '/certificate':
             self.serve_certificate()
             return
@@ -51,4 +48,8 @@ httpd.socket = context.wrap_socket(httpd.socket, server_side=True)
 
 # Start the server
 print("Serving on https://localhost:4443")
-httpd.serve_forever()
+try:
+    httpd.serve_forever()
+except KeyboardInterrupt:
+    print("Shutting down the server.")
+    httpd.server_close()
