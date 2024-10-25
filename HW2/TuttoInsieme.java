@@ -70,6 +70,9 @@ public class TuttoInsieme {
                         System.out.println("A manda: " + Base64.getEncoder().encodeToString(encryptedMessageA2));
                         queueAtoB.put(encryptedMessageA2);
                     }
+                    else {
+                        System.out.println("ERRORE: Nonce1 non corrisponde");
+                    }
 
                     // Receive confirmation from B
                     byte[] encryptedConfirmation = queueBtoA.take();
@@ -145,11 +148,18 @@ public class TuttoInsieme {
                     System.out.println("\nB riceve criptato: " + Base64.getEncoder().encodeToString(encryptedMessageA2));
                     System.out.println("B riceve decriptato: " + messageA2);
 
-                    // Send confirmation to A
-                    cipher.init(Cipher.ENCRYPT_MODE, keyPairA.getPublic());
-                    byte[] encryptedConfirmation = cipher.doFinal("CONFIRMED".getBytes());
-                    System.out.println("B manda conferma: " + Base64.getEncoder().encodeToString(encryptedConfirmation));
-                    queueBtoA.put(encryptedConfirmation);
+                    // Check if nonce2 matches
+                    if (messageA2.equals(Base64.getEncoder().encodeToString(nonce2))) {
+                        System.out.println("B verifica nonce2: " + messageA2);
+
+                        // Send confirmation to A
+                        cipher.init(Cipher.ENCRYPT_MODE, keyPairA.getPublic());
+                        byte[] encryptedConfirmation = cipher.doFinal("CONFIRMED".getBytes());
+                        System.out.println("B manda conferma: " + Base64.getEncoder().encodeToString(encryptedConfirmation));
+                        queueBtoA.put(encryptedConfirmation);
+                    } else {
+                        System.out.println("ERRORE: Nonce2 non corrisponde");
+                    }
 
                     // Receive encrypted message from A
                     byte[] encryptedMessageA3 = queueAtoB.take();
@@ -168,6 +178,7 @@ public class TuttoInsieme {
                     String userMessage = new String(decryptedUserMessage);
                     System.out.println("\nB riceve messaggio criptato: " + Base64.getEncoder().encodeToString(encryptedUserMessage));
                     System.out.println("B riceve messaggio decriptato: " + userMessage);
+
 
                 } catch (Exception e) {
                     e.printStackTrace();
