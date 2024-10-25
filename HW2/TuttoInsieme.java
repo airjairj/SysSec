@@ -95,6 +95,7 @@ public class TuttoInsieme {
                     Scanner scanner = new Scanner(System.in);
                     System.out.print("Enter message to send to B: ");
                     String userMessage = scanner.nextLine();
+                    scanner.close();
 
                     // Encrypt the message with the session key
                     cipher = Cipher.getInstance("AES");
