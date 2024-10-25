@@ -16,7 +16,6 @@ public class AESCrypto {
         Cipher cipher = Cipher.getInstance("AES");
 
         // Encrypt data
-
         java.util.Scanner scanner = new java.util.Scanner(System.in);
         System.out.print("Scrivi qualcosa da criptare con AES: ");
         String originalData = scanner.nextLine();
