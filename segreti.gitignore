@@ -5,5 +5,5 @@
 .crt
 .key
 Risorse/
-Risorse/Img/
 .gitignore
+HW3/apache-tomcat-11.0.0/
