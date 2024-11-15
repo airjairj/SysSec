@@ -1,0 +1,65 @@
+07-Nov-2024 11:31:00.507 WARNING [main] org.apache.tomcat.util.digester.SetPropertiesRule.begin Match [Server/Service/Connector] failed to set property [clientAuth] to [false]
+07-Nov-2024 11:31:00.570 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/11.0.0
+07-Nov-2024 11:31:00.570 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 3 2024 17:00:16 UTC
+07-Nov-2024 11:31:00.570 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 11.0.0.0
+07-Nov-2024 11:31:00.570 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+07-Nov-2024 11:31:00.570 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+07-Nov-2024 11:31:00.570 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+07-Nov-2024 11:31:00.570 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\jdk-21.0.1
+07-Nov-2024 11:31:00.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.1+12-29
+07-Nov-2024 11:31:00.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+07-Nov-2024 11:31:00.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0
+07-Nov-2024 11:31:00.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0
+07-Nov-2024 11:31:00.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\conf\logging.properties
+07-Nov-2024 11:31:00.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+07-Nov-2024 11:31:00.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+07-Nov-2024 11:31:00.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+07-Nov-2024 11:31:00.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+07-Nov-2024 11:31:00.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+07-Nov-2024 11:31:00.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+07-Nov-2024 11:31:00.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+07-Nov-2024 11:31:00.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --enable-native-access=ALL-UNNAMED
+07-Nov-2024 11:31:00.578 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0
+07-Nov-2024 11:31:00.582 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0
+07-Nov-2024 11:31:00.582 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\temp
+07-Nov-2024 11:31:00.586 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\jdk-21.0.1\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\VMware\VMware Player\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Ghdl\Bin;C:\Program Files\Unity\Hub\Editor\2022.3.21f1\Editor\Data\PlaybackEngines\AndroidPlayer\SDK\tools\bin;C:\Users\hp\AppData\Local\Programs\Python\Python311;C:\Users\hp\AppData\Local\Programs\Python\Python311\python.exe;C:\Users\hp\AppData\Local\Programs\Python\Python311\Scripts\;C:\Program Files\OpenSSL-Win64\bin;C:\Program Files\Vault;C:\Users\hp\AppData\Local\Microsoft\WindowsApps;C:\Users\hp\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\hp\AppData\Roaming\npm;C:\Program Files (x86)\Ghdl\bin;C:\Users\hp\Documents\ASDI\Software\gtkwave-3.3.90-bin-win64\gtkwave64\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\bin;;C:\apache-maven-3.9.6\bin;C:\Program Files (x86)\GnuWin32\bin;C:\Users\hp\.dotnet\tools;.]
+07-Nov-2024 11:31:00.965 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["https-jsse-nio-8443"]
+07-Nov-2024 11:31:01.297 INFO [main] org.apache.tomcat.util.net.AbstractEndpoint.logCertificate Connector [https-jsse-nio-8443], TLS virtual host [_default_], certificate type [RSA] configured from key [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\Risorse\private.key], certificate [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\Risorse\certificate.crt] and certificate chain [null] with trust store [null]
+07-Nov-2024 11:31:01.312 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [1006] milliseconds
+07-Nov-2024 11:31:01.363 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+07-Nov-2024 11:31:01.363 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/11.0.0]
+07-Nov-2024 11:31:01.376 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\docs]
+07-Nov-2024 11:31:01.684 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\docs] has finished in [308] ms
+07-Nov-2024 11:31:01.685 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\examples]
+07-Nov-2024 11:31:03.831 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\examples] has finished in [2,146] ms
+07-Nov-2024 11:31:03.831 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\host-manager]
+07-Nov-2024 11:31:03.920 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\host-manager] has finished in [89] ms
+07-Nov-2024 11:31:03.920 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\manager]
+07-Nov-2024 11:31:03.989 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\manager] has finished in [69] ms
+07-Nov-2024 11:31:03.989 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\ROOT]
+07-Nov-2024 11:31:04.005 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\ROOT] has finished in [16] ms
+07-Nov-2024 11:31:04.005 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\ROOT_base]
+07-Nov-2024 11:31:04.050 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\ROOT_base] has finished in [45] ms
+07-Nov-2024 11:31:04.058 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["https-jsse-nio-8443"]
+07-Nov-2024 11:31:04.101 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [2780] milliseconds
+07-Nov-2024 11:32:02.218 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["https-jsse-nio-8443"]
+07-Nov-2024 11:32:02.230 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+07-Nov-2024 11:32:02.296 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["https-jsse-nio-8443"]
+07-Nov-2024 11:32:02.305 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["https-jsse-nio-8443"]
+07-Nov-2024 11:32:08.701 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Could not contact [localhost:8005] (base port [8005] and offset [0]). Tomcat may not be running.
+07-Nov-2024 11:32:08.701 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Error stopping Catalina
+	java.net.ConnectException: Connection refused: connect
+		at java.base/sun.nio.ch.Net.connect0(Native Method)
+		at java.base/sun.nio.ch.Net.connect(Net.java:589)
+		at java.base/sun.nio.ch.Net.connect(Net.java:578)
+		at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:583)
+		at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+		at java.base/java.net.Socket.connect(Socket.java:751)
+		at java.base/java.net.Socket.connect(Socket.java:686)
+		at java.base/java.net.Socket.<init>(Socket.java:555)
+		at java.base/java.net.Socket.<init>(Socket.java:324)
+		at org.apache.catalina.startup.Catalina.stopServer(Catalina.java:651)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.stopServer(Bootstrap.java:390)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:475)

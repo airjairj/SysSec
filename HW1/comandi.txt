@@ -5,3 +5,8 @@ openssl x509 -req -days 365 -in request.csr -signkey private.key -out certificat
 python SSL.py
 
 vai a https://localhost:4443
+
+openssl pkcs12 -export -in certificate.crt -inkey private.key -out keystore.p12 -name tomcat -CAfile cacert.pem -caname root
+
+source keystore PASSWORD = abc
+destination keystore PASSWORD = abcabc

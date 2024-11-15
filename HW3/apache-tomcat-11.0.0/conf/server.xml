@@ -68,13 +68,19 @@
          Define a non-SSL/TLS HTTP/1.1 Connector on port 8080
     -->
      <Connector port="8443" protocol="org.apache.coyote.http11.Http11NioProtocol"
-               maxThreads="150" SSLEnabled="true" scheme="https" secure="true" clientAuth="false">
-     <SSLHostConfig>
-          <Certificate certificateFile="C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\Risorse\certificate.crt" 
-                       certificateKeyFile="C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\Risorse\private.key"
-                       type="RSA" />
-     </SSLHostConfig>
+               maxThreads="200" SSLEnabled="true" scheme="https" secure="true">
+               <UpgradeProtocol className="org.apache.coyote.http2.Http2Protocol" />
+          <SSLHostConfig sslProtocol="TLS">
+          <Certificate certificateKeystoreFile="C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\Risorse\keystore.p12"
+                         certificateKeystorePassword="abc"
+                         certificateKeystoreType="PKCS12"
+                         alias="tomcat"/>
+          </SSLHostConfig>
+
      </Connector>
+
+
+
     <!-- A "Connector" using the shared thread pool-->
     <!--
     <Connector executor="tomcatThreadPool"

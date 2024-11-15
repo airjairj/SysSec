@@ -1,0 +1,253 @@
+14-Nov-2024 12:15:05.792 WARNING [main] org.apache.tomcat.util.digester.SetPropertiesRule.begin Match [Server/Service/Connector] failed to set property [clientAuth] to [false]
+14-Nov-2024 12:15:05.857 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/11.0.0
+14-Nov-2024 12:15:05.857 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 3 2024 17:00:16 UTC
+14-Nov-2024 12:15:05.857 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 11.0.0.0
+14-Nov-2024 12:15:05.857 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+14-Nov-2024 12:15:05.857 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+14-Nov-2024 12:15:05.857 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+14-Nov-2024 12:15:05.857 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\jdk-21.0.1
+14-Nov-2024 12:15:05.857 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.1+12-29
+14-Nov-2024 12:15:05.857 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+14-Nov-2024 12:15:05.857 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0
+14-Nov-2024 12:15:05.857 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0
+14-Nov-2024 12:15:05.871 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\conf\logging.properties
+14-Nov-2024 12:15:05.871 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+14-Nov-2024 12:15:05.871 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+14-Nov-2024 12:15:05.871 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+14-Nov-2024 12:15:05.871 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+14-Nov-2024 12:15:05.871 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+14-Nov-2024 12:15:05.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+14-Nov-2024 12:15:05.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+14-Nov-2024 12:15:05.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --enable-native-access=ALL-UNNAMED
+14-Nov-2024 12:15:05.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0
+14-Nov-2024 12:15:05.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0
+14-Nov-2024 12:15:05.873 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\temp
+14-Nov-2024 12:15:05.873 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\jdk-21.0.1\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\VMware\VMware Player\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Ghdl\Bin;C:\Program Files\Unity\Hub\Editor\2022.3.21f1\Editor\Data\PlaybackEngines\AndroidPlayer\SDK\tools\bin;C:\Users\hp\AppData\Local\Programs\Python\Python311;C:\Users\hp\AppData\Local\Programs\Python\Python311\python.exe;C:\Users\hp\AppData\Local\Programs\Python\Python311\Scripts\;C:\Program Files\OpenSSL-Win64\bin;C:\Program Files\Vault;C:\apache-maven-3.9.6\bin;C:\Users\hp\AppData\Local\Microsoft\WindowsApps;C:\Users\hp\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\hp\AppData\Roaming\npm;C:\Program Files (x86)\Ghdl\bin;C:\Users\hp\Documents\ASDI\Software\gtkwave-3.3.90-bin-win64\gtkwave64\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\bin;;C:\apache-maven-3.9.6\bin;C:\Program Files (x86)\GnuWin32\bin;C:\Users\hp\.dotnet\tools;.]
+14-Nov-2024 12:15:06.191 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["https-jsse-nio-8443"]
+14-Nov-2024 12:15:06.558 INFO [main] org.apache.tomcat.util.net.AbstractEndpoint.logCertificate Connector [https-jsse-nio-8443], TLS virtual host [_default_], certificate type [RSA] configured from key [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\Risorse\private.key], certificate [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\Risorse\certificate.crt] and certificate chain [null] with trust store [null]
+14-Nov-2024 12:15:06.580 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [994] milliseconds
+14-Nov-2024 12:15:06.674 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+14-Nov-2024 12:15:06.674 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/11.0.0]
+14-Nov-2024 12:15:06.682 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\docs]
+14-Nov-2024 12:15:07.034 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\docs] has finished in [352] ms
+14-Nov-2024 12:15:07.034 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\examples]
+14-Nov-2024 12:15:09.227 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\examples] has finished in [2,193] ms
+14-Nov-2024 12:15:09.227 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\host-manager]
+14-Nov-2024 12:15:09.289 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\host-manager] has finished in [62] ms
+14-Nov-2024 12:15:09.289 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\manager]
+14-Nov-2024 12:15:09.362 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\manager] has finished in [73] ms
+14-Nov-2024 12:15:09.362 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\ROOT]
+14-Nov-2024 12:15:09.399 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\ROOT] has finished in [37] ms
+14-Nov-2024 12:15:09.399 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\ROOT_base]
+14-Nov-2024 12:15:09.431 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\ROOT_base] has finished in [32] ms
+14-Nov-2024 12:15:09.431 INFO [main] org.apache.coyote.AbstractProtocol.start Starting ProtocolHandler ["https-jsse-nio-8443"]
+14-Nov-2024 12:15:09.469 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [2885] milliseconds
+14-Nov-2024 14:28:51.961 INFO [Thread-1] org.apache.coyote.AbstractProtocol.pause Pausing ProtocolHandler ["https-jsse-nio-8443"]
+14-Nov-2024 14:28:52.003 INFO [Thread-1] org.apache.catalina.core.StandardService.stopInternal Stopping service [Catalina]
+14-Nov-2024 14:28:52.151 INFO [Thread-1] org.apache.coyote.AbstractProtocol.stop Stopping ProtocolHandler ["https-jsse-nio-8443"]
+14-Nov-2024 14:28:52.174 INFO [Thread-1] org.apache.coyote.AbstractProtocol.destroy Destroying ProtocolHandler ["https-jsse-nio-8443"]
+14-Nov-2024 14:29:18.594 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Could not contact [localhost:8005] (base port [8005] and offset [0]). Tomcat may not be running.
+14-Nov-2024 14:29:18.594 SEVERE [main] org.apache.catalina.startup.Catalina.stopServer Error stopping Catalina
+	java.net.ConnectException: Connection refused: connect
+		at java.base/sun.nio.ch.Net.connect0(Native Method)
+		at java.base/sun.nio.ch.Net.connect(Net.java:589)
+		at java.base/sun.nio.ch.Net.connect(Net.java:578)
+		at java.base/sun.nio.ch.NioSocketImpl.connect(NioSocketImpl.java:583)
+		at java.base/java.net.SocksSocketImpl.connect(SocksSocketImpl.java:327)
+		at java.base/java.net.Socket.connect(Socket.java:751)
+		at java.base/java.net.Socket.connect(Socket.java:686)
+		at java.base/java.net.Socket.<init>(Socket.java:555)
+		at java.base/java.net.Socket.<init>(Socket.java:324)
+		at org.apache.catalina.startup.Catalina.stopServer(Catalina.java:651)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.stopServer(Bootstrap.java:390)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:475)
+14-Nov-2024 14:29:22.942 WARNING [main] org.apache.tomcat.util.digester.SetPropertiesRule.begin Match [Server/Service/Connector] failed to set property [clientAuth] to [false]
+14-Nov-2024 14:29:22.973 SEVERE [main] org.apache.tomcat.util.digester.Digester.startElement Begin event threw exception
+	java.lang.IllegalArgumentException: No enum constant org.apache.tomcat.util.net.SSLHostConfigCertificate.Type.PKCS12
+		at java.base/java.lang.Enum.valueOf(Enum.java:293)
+		at org.apache.tomcat.util.net.SSLHostConfigCertificate$Type.valueOf(SSLHostConfigCertificate.java:322)
+		at org.apache.catalina.startup.CertificateCreateRule.begin(CertificateCreateRule.java:39)
+		at org.apache.tomcat.util.digester.Digester.startElement(Digester.java:1264)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.startElement(AbstractSAXParser.java:518)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractXMLDocumentParser.emptyElement(AbstractXMLDocumentParser.java:183)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanStartElement(XMLDocumentFragmentScannerImpl.java:1387)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2726)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+		at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:637)
+		at org.apache.tomcat.util.digester.Digester.parse(Digester.java:1522)
+		at org.apache.catalina.startup.Catalina.parseServerXml(Catalina.java:601)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:691)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:729)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:299)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:469)
+14-Nov-2024 14:29:22.973 WARNING [main] org.apache.catalina.startup.Catalina.parseServerXml Unable to load server configuration from [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\conf\server.xml]
+	org.xml.sax.SAXParseException; systemId: file:/C:/Users/hp/Documents/Esami%20In%20Corso/System%20Sec/Homework/SysSec/HW3/apache-tomcat-11.0.0/conf/server.xml; lineNumber: 74; columnNumber: 76; Error at line [74] column [76]: [No enum constant org.apache.tomcat.util.net.SSLHostConfigCertificate.Type.PKCS12]
+		at org.apache.tomcat.util.digester.Digester.createSAXException(Digester.java:1950)
+		at org.apache.tomcat.util.digester.Digester.createSAXException(Digester.java:1979)
+		at org.apache.tomcat.util.digester.Digester.startElement(Digester.java:1267)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.startElement(AbstractSAXParser.java:518)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractXMLDocumentParser.emptyElement(AbstractXMLDocumentParser.java:183)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanStartElement(XMLDocumentFragmentScannerImpl.java:1387)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2726)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+		at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:637)
+		at org.apache.tomcat.util.digester.Digester.parse(Digester.java:1522)
+		at org.apache.catalina.startup.Catalina.parseServerXml(Catalina.java:601)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:691)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:729)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:299)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:469)
+	Caused by: java.lang.IllegalArgumentException: No enum constant org.apache.tomcat.util.net.SSLHostConfigCertificate.Type.PKCS12
+		at java.base/java.lang.Enum.valueOf(Enum.java:293)
+		at org.apache.tomcat.util.net.SSLHostConfigCertificate$Type.valueOf(SSLHostConfigCertificate.java:322)
+		at org.apache.catalina.startup.CertificateCreateRule.begin(CertificateCreateRule.java:39)
+		at org.apache.tomcat.util.digester.Digester.startElement(Digester.java:1264)
+		... 19 more
+14-Nov-2024 14:29:22.973 SEVERE [main] org.apache.catalina.startup.Catalina.start Cannot start server, server instance is not configured
+14-Nov-2024 14:30:14.886 WARNING [main] org.apache.tomcat.util.digester.SetPropertiesRule.begin Match [Server/Service/Connector] failed to set property [clientAuth] to [false]
+14-Nov-2024 14:30:14.904 SEVERE [main] org.apache.tomcat.util.digester.Digester.startElement Begin event threw exception
+	java.lang.IllegalArgumentException: No enum constant org.apache.tomcat.util.net.SSLHostConfigCertificate.Type.PKCS12
+		at java.base/java.lang.Enum.valueOf(Enum.java:293)
+		at org.apache.tomcat.util.net.SSLHostConfigCertificate$Type.valueOf(SSLHostConfigCertificate.java:322)
+		at org.apache.catalina.startup.CertificateCreateRule.begin(CertificateCreateRule.java:39)
+		at org.apache.tomcat.util.digester.Digester.startElement(Digester.java:1264)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.startElement(AbstractSAXParser.java:518)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractXMLDocumentParser.emptyElement(AbstractXMLDocumentParser.java:183)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanStartElement(XMLDocumentFragmentScannerImpl.java:1387)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2726)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+		at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:637)
+		at org.apache.tomcat.util.digester.Digester.parse(Digester.java:1522)
+		at org.apache.catalina.startup.Catalina.parseServerXml(Catalina.java:601)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:691)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:729)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:299)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:469)
+14-Nov-2024 14:30:14.913 WARNING [main] org.apache.catalina.startup.Catalina.parseServerXml Unable to load server configuration from [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\conf\server.xml]
+	org.xml.sax.SAXParseException; systemId: file:/C:/Users/hp/Documents/Esami%20In%20Corso/System%20Sec/Homework/SysSec/HW3/apache-tomcat-11.0.0/conf/server.xml; lineNumber: 74; columnNumber: 76; Error at line [74] column [76]: [No enum constant org.apache.tomcat.util.net.SSLHostConfigCertificate.Type.PKCS12]
+		at org.apache.tomcat.util.digester.Digester.createSAXException(Digester.java:1950)
+		at org.apache.tomcat.util.digester.Digester.createSAXException(Digester.java:1979)
+		at org.apache.tomcat.util.digester.Digester.startElement(Digester.java:1267)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.startElement(AbstractSAXParser.java:518)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractXMLDocumentParser.emptyElement(AbstractXMLDocumentParser.java:183)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanStartElement(XMLDocumentFragmentScannerImpl.java:1387)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl$FragmentContentDriver.next(XMLDocumentFragmentScannerImpl.java:2726)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentScannerImpl.next(XMLDocumentScannerImpl.java:605)
+		at java.xml/com.sun.org.apache.xerces.internal.impl.XMLDocumentFragmentScannerImpl.scanDocument(XMLDocumentFragmentScannerImpl.java:542)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:889)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.XML11Configuration.parse(XML11Configuration.java:825)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.XMLParser.parse(XMLParser.java:141)
+		at java.xml/com.sun.org.apache.xerces.internal.parsers.AbstractSAXParser.parse(AbstractSAXParser.java:1224)
+		at java.xml/com.sun.org.apache.xerces.internal.jaxp.SAXParserImpl$JAXPSAXParser.parse(SAXParserImpl.java:637)
+		at org.apache.tomcat.util.digester.Digester.parse(Digester.java:1522)
+		at org.apache.catalina.startup.Catalina.parseServerXml(Catalina.java:601)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:691)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:729)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:299)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:469)
+	Caused by: java.lang.IllegalArgumentException: No enum constant org.apache.tomcat.util.net.SSLHostConfigCertificate.Type.PKCS12
+		at java.base/java.lang.Enum.valueOf(Enum.java:293)
+		at org.apache.tomcat.util.net.SSLHostConfigCertificate$Type.valueOf(SSLHostConfigCertificate.java:322)
+		at org.apache.catalina.startup.CertificateCreateRule.begin(CertificateCreateRule.java:39)
+		at org.apache.tomcat.util.digester.Digester.startElement(Digester.java:1264)
+		... 19 more
+14-Nov-2024 14:30:14.913 SEVERE [main] org.apache.catalina.startup.Catalina.start Cannot start server, server instance is not configured
+14-Nov-2024 14:31:36.591 WARNING [main] org.apache.tomcat.util.digester.SetPropertiesRule.begin Match [Server/Service/Connector] failed to set property [clientAuth] to [false]
+14-Nov-2024 14:31:36.642 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version name:   Apache Tomcat/11.0.0
+14-Nov-2024 14:31:36.642 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server built:          Oct 3 2024 17:00:16 UTC
+14-Nov-2024 14:31:36.642 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Server version number: 11.0.0.0
+14-Nov-2024 14:31:36.643 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Name:               Windows 11
+14-Nov-2024 14:31:36.643 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log OS Version:            10.0
+14-Nov-2024 14:31:36.643 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Architecture:          amd64
+14-Nov-2024 14:31:36.643 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Java Home:             C:\jdk-21.0.1
+14-Nov-2024 14:31:36.643 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Version:           21.0.1+12-29
+14-Nov-2024 14:31:36.644 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log JVM Vendor:            Oracle Corporation
+14-Nov-2024 14:31:36.644 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_BASE:         C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0
+14-Nov-2024 14:31:36.644 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log CATALINA_HOME:         C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0
+14-Nov-2024 14:31:36.645 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.config.file=C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\conf\logging.properties
+14-Nov-2024 14:31:36.645 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.util.logging.manager=org.apache.juli.ClassLoaderLogManager
+14-Nov-2024 14:31:36.646 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djdk.tls.ephemeralDHKeySize=2048
+14-Nov-2024 14:31:36.646 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.lang=ALL-UNNAMED
+14-Nov-2024 14:31:36.646 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.io=ALL-UNNAMED
+14-Nov-2024 14:31:36.647 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util=ALL-UNNAMED
+14-Nov-2024 14:31:36.648 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.base/java.util.concurrent=ALL-UNNAMED
+14-Nov-2024 14:31:36.649 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --add-opens=java.rmi/sun.rmi.transport=ALL-UNNAMED
+14-Nov-2024 14:31:36.650 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: --enable-native-access=ALL-UNNAMED
+14-Nov-2024 14:31:36.650 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.base=C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0
+14-Nov-2024 14:31:36.650 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Dcatalina.home=C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0
+14-Nov-2024 14:31:36.651 INFO [main] org.apache.catalina.startup.VersionLoggerListener.log Command line argument: -Djava.io.tmpdir=C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\temp
+14-Nov-2024 14:31:36.655 INFO [main] org.apache.catalina.core.AprLifecycleListener.lifecycleEvent The Apache Tomcat Native library which allows using OpenSSL was not found on the java.library.path: [C:\jdk-21.0.1\bin;C:\windows\Sun\Java\bin;C:\windows\system32;C:\windows;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files (x86)\VMware\VMware Player\bin\;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\dotnet\;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files (x86)\Ghdl\Bin;C:\Program Files\Unity\Hub\Editor\2022.3.21f1\Editor\Data\PlaybackEngines\AndroidPlayer\SDK\tools\bin;C:\Users\hp\AppData\Local\Programs\Python\Python311;C:\Users\hp\AppData\Local\Programs\Python\Python311\python.exe;C:\Users\hp\AppData\Local\Programs\Python\Python311\Scripts\;C:\Program Files\OpenSSL-Win64\bin;C:\Program Files\Vault;C:\apache-maven-3.9.6\bin;C:\jdk-21.0.1\bin;C:\Users\hp\AppData\Local\Microsoft\WindowsApps;C:\Users\hp\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\hp\AppData\Roaming\npm;C:\Program Files (x86)\Ghdl\bin;C:\Users\hp\Documents\ASDI\Software\gtkwave-3.3.90-bin-win64\gtkwave64\bin;C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2023.2.2\bin;;C:\apache-maven-3.9.6\bin;C:\Program Files (x86)\GnuWin32\bin;C:\Users\hp\.dotnet\tools;.]
+14-Nov-2024 14:31:36.941 INFO [main] org.apache.coyote.AbstractProtocol.init Initializing ProtocolHandler ["https-jsse-nio-8443"]
+14-Nov-2024 14:31:37.136 SEVERE [main] org.apache.catalina.util.LifecycleBase.handleSubClassException Failed to initialize component [Connector["https-jsse-nio-8443"]]
+	org.apache.catalina.LifecycleException: Protocol handler initialization failed
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:1035)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:122)
+		at org.apache.catalina.core.StandardService.initInternal(StandardService.java:525)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:122)
+		at org.apache.catalina.core.StandardServer.initInternal(StandardServer.java:953)
+		at org.apache.catalina.util.LifecycleBase.init(LifecycleBase.java:122)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:706)
+		at org.apache.catalina.startup.Catalina.load(Catalina.java:729)
+		at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103)
+		at java.base/java.lang.reflect.Method.invoke(Method.java:580)
+		at org.apache.catalina.startup.Bootstrap.load(Bootstrap.java:299)
+		at org.apache.catalina.startup.Bootstrap.main(Bootstrap.java:469)
+	Caused by: java.lang.IllegalArgumentException: Error creating SSLContext
+		at org.apache.tomcat.util.net.AbstractEndpoint.createSSLContext(AbstractEndpoint.java:423)
+		at org.apache.tomcat.util.net.AbstractEndpoint.initialiseSsl(AbstractEndpoint.java:597)
+		at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:200)
+		at org.apache.tomcat.util.net.AbstractEndpoint.bindWithCleanup(AbstractEndpoint.java:1472)
+		at org.apache.tomcat.util.net.AbstractEndpoint.init(AbstractEndpoint.java:1485)
+		at org.apache.coyote.AbstractProtocol.init(AbstractProtocol.java:633)
+		at org.apache.coyote.http11.AbstractHttp11Protocol.init(AbstractHttp11Protocol.java:80)
+		at org.apache.catalina.connector.Connector.initInternal(Connector.java:1033)
+		... 11 more
+	Caused by: java.io.IOException: Cannot obtain resource for specified location [C:\path\to\your\keystore.p12]: no readable file, classloader resource, or this is not a resolvable URI
+		at org.apache.catalina.startup.CatalinaBaseConfigurationSource.getResource(CatalinaBaseConfigurationSource.java:115)
+		at org.apache.tomcat.util.net.SSLUtilBase.getStore(SSLUtilBase.java:209)
+		at org.apache.tomcat.util.net.SSLHostConfigCertificate.getCertificateKeystore(SSLHostConfigCertificate.java:254)
+		at org.apache.tomcat.util.net.SSLUtilBase.getKeyManagers(SSLUtilBase.java:307)
+		at org.apache.tomcat.util.net.SSLUtilBase.createSSLContext(SSLUtilBase.java:267)
+		at org.apache.tomcat.util.net.AbstractEndpoint.createSSLContext(AbstractEndpoint.java:421)
+		... 18 more
+14-Nov-2024 14:31:37.149 INFO [main] org.apache.catalina.startup.Catalina.load Server initialization in [699] milliseconds
+14-Nov-2024 14:31:37.196 INFO [main] org.apache.catalina.core.StandardService.startInternal Starting service [Catalina]
+14-Nov-2024 14:31:37.196 INFO [main] org.apache.catalina.core.StandardEngine.startInternal Starting Servlet engine: [Apache Tomcat/11.0.0]
+14-Nov-2024 14:31:37.196 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\docs]
+14-Nov-2024 14:31:37.512 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\docs] has finished in [316] ms
+14-Nov-2024 14:31:37.512 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\examples]
+14-Nov-2024 14:31:38.047 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\examples] has finished in [535] ms
+14-Nov-2024 14:31:38.047 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\host-manager]
+14-Nov-2024 14:31:38.097 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\host-manager] has finished in [50] ms
+14-Nov-2024 14:31:38.097 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\manager]
+14-Nov-2024 14:31:38.140 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\manager] has finished in [43] ms
+14-Nov-2024 14:31:38.140 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\ROOT]
+14-Nov-2024 14:31:38.172 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\ROOT] has finished in [32] ms
+14-Nov-2024 14:31:38.179 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deploying web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\ROOT_base]
+14-Nov-2024 14:31:38.198 INFO [main] org.apache.catalina.startup.HostConfig.deployDirectory Deployment of web application directory [C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW3\apache-tomcat-11.0.0\webapps\ROOT_base] has finished in [19] ms
+14-Nov-2024 14:31:38.198 INFO [main] org.apache.catalina.startup.Catalina.start Server startup in [1060] milliseconds
