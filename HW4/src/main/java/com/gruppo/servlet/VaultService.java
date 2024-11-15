@@ -15,7 +15,7 @@ public class VaultService {
         // Configura Vault per connettersi al server
         VaultConfig config = new VaultConfig()
             .address("http://127.0.0.1:8200") // URL di Vault
-            .token("hvs.lFYieIu75taEjQpFtAzK7yHT") // Token di autenticazione
+            .token("") // Token di autenticazione
             .build();
 
         vault = new Vault(config);
