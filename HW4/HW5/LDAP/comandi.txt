@@ -1,0 +1,5 @@
+cd C:\OpenLDAP
+slapd -f "C:\\OpenLDAP\\slapd.conf" -h "ldap://localhost:389 ldaps://localhost:636" -d 256
+slapcat -f slapd.conf
+
+slapadd -l user.ldif

@@ -1,7 +1,0 @@
-0:0:0:0:0:0:0:1 - - [15/Nov/2024:18:09:55 +0100] "GET / HTTP/1.1" 200 4553 http-bio-8443-exec-2 85
-0:0:0:0:0:0:0:1 - - [15/Nov/2024:18:09:55 +0100] "GET /favicon.ico HTTP/1.1" 200 9595 http-bio-8443-exec-3 8
-0:0:0:0:0:0:0:1 - - [15/Nov/2024:18:09:58 +0100] "GET /hello?action=signup&key=a&value=a HTTP/1.1" 200 22 http-bio-8443-exec-4 76
-0:0:0:0:0:0:0:1 - - [15/Nov/2024:18:10:03 +0100] "GET /hello?action=signup&key=a&value=a HTTP/1.1" 200 24 http-bio-8443-exec-5 27
-0:0:0:0:0:0:0:1 - - [15/Nov/2024:18:10:06 +0100] "GET /hello?action=login&key=a&value=a HTTP/1.1" 200 19 http-bio-8443-exec-6 5
-0:0:0:0:0:0:0:1 - - [15/Nov/2024:18:10:38 +0100] "GET /hello?action=signup&key=b&value=b HTTP/1.1" 200 22 http-bio-8443-exec-7 10
-0:0:0:0:0:0:0:1 - - [15/Nov/2024:18:10:40 +0100] "GET /hello?action=login&key=b&value=b HTTP/1.1" 200 19 http-bio-8443-exec-8 7

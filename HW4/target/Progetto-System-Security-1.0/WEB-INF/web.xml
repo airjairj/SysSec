@@ -24,17 +24,33 @@
 
   <display-name>Welcome to Tomcat</display-name>
   <description>
-     Welcome to Tomcat
+    Welcome to Tomcat
   </description>
 
   <servlet>
-        <servlet-name>HelloServlet</servlet-name>
-        <servlet-class>com.gruppo.servlet.HelloServlet</servlet-class>
-    </servlet>
+    <servlet-name>VaultServlet</servlet-name>
+    <servlet-class>com.gruppo.servlet.VaultServlet</servlet-class>
+  </servlet>
 
-    <servlet-mapping>
-        <servlet-name>HelloServlet</servlet-name>
-        <url-pattern>/hello</url-pattern>
-    </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>VaultServlet</servlet-name>
+    <url-pattern>/vault</url-pattern>
+  </servlet-mapping>
+
+<servlet>
+    <servlet-name>LDAPServlet</servlet-name>
+    <servlet-class>com.gruppo.servlet.LDAPServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>LDAPServlet</servlet-name>
+    <url-pattern>/ldap</url-pattern>
+</servlet-mapping>
+
+  <context-param>
+    <param-name>vaultToken</param-name>
+    <param-value>hvs.C2qBHXogxXbQexHFBgR1PAd9</param-value>
+  </context-param>
+
 
 </web-app>

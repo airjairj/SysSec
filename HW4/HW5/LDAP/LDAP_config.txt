@@ -1,0 +1,6 @@
+server name/ip address = LDAP
+port = 389
+SSL port = 636
+pass = admin
+
+OpenLDAP si trova (almeno a me) in C:\OpenLDAP

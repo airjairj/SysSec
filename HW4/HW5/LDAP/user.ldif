@@ -1,0 +1,6 @@
+dn: uid=cicciobello,ou=users,dc=maxcrc,dc=com
+objectClass: inetOrgPerson
+cn: Ciccio Bello
+sn: Bello
+uid: cicciobello
+userPassword: {SSHA}saX8IWjJpi4VAfPopSVulcAJ1vRdu0lq

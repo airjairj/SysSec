@@ -78,36 +78,57 @@
     </script>
 
     <div class="container">
-        <h2>Login or Sign Up</h2>
-        <input type="text" id="username" placeholder="Username" style="margin-bottom: 10px; padding: 10px; width: 100%; box-sizing: border-box;">
-        <input type="password" id="password" placeholder="Password" style="margin-bottom: 10px; padding: 10px; width: 100%; box-sizing: border-box;">
-        <div style="display: flex; justify-content: space-between;"></div>
+        <h2>Login LDAP</h2>
+        <input type="text" id="username" placeholder="Username" 
+            style="margin-bottom: 10px; padding: 10px; width: 100%; box-sizing: border-box;">
+        <input type="password" id="password" placeholder="Password" 
+            style="margin-bottom: 10px; padding: 10px; width: 100%; box-sizing: border-box;">
+        <div style="display: flex; justify-content: space-between;">
             <button id="loginButton" style="flex: 1; margin-right: 10px;">Login</button>
-            <button id="signUpButton" style="flex: 1; margin-left: 10px;">Sign Up</button>
+            <!--<button id="signUpButton" style="flex: 1; margin-left: 10px;">Sign Up</button>-->
         </div>
     </div>
+
     <script>
-        document.getElementById('signUpButton').addEventListener('click', function() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-            var url = `https://localhost:8443/hello?action=signup&key=${encodeURIComponent(username)}&value=${encodeURIComponent(password)}`;
-            fetch(url)
-                .then(response => response.text())
-                .then(data => alert(data))
-                .catch(error => console.error('Error during sign up:', error));
+        document.getElementById('loginButton').addEventListener('click', function () {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+    
+            if (!username || !password) {
+                alert("Inserisci sia il nome utente che la password.");
+                return;
+            }
+    
+            fetch('https://localhost:8443/ldap', { 
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded'
+                },
+                body: `username=${encodeURIComponent(username)}&password=${encodeURIComponent(password)}`
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(`Login fallito: ${response.status}`);
+                }
+                // The servlet will handle the redirect with the token
+                // Just follow the redirect
+                //window.location.href = data;
+                window.location.href = response.url;
+            })
+            .catch(error => {
+                alert("Errore durante il login: " + error.message);
+            });
         });
     </script>
-    <script>
-        document.getElementById('loginButton').addEventListener('click', function() {
-            var username = document.getElementById('username').value;
-            var password = document.getElementById('password').value;
-            var url = `https://localhost:8443/hello?action=login&key=${encodeURIComponent(username)}&value=${encodeURIComponent(password)}`;
-            fetch(url)
-                .then(response => response.text())
-                .then(data => alert(data))
-                .catch(error => console.error('Error during login:', error));
+
+    <!--<script>
+        document.getElementById('signUpButton').addEventListener('click', function () {
+            alert("La funzione di registrazione non è implementata.");
         });
-    </script>
+    </script>-->
+
+
+
 </body>
 
 </html>

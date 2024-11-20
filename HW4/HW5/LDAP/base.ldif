@@ -1,0 +1,26 @@
+dn: dc=maxcrc,dc=com
+objectClass: top
+objectClass: dcObject
+objectClass: organization
+o: Maxcrc
+dc: maxcrc
+
+dn: ou=users,dc=maxcrc,dc=com
+objectClass: organizationalUnit
+ou: users
+
+dn: ou=groups,dc=maxcrc,dc=com
+objectClass: organizationalUnit
+ou: groups
+
+dn: uid=cicciobello,ou=users,dc=maxcrc,dc=com
+objectClass: inetOrgPerson
+cn: Ciccio Bello
+sn: Bello
+uid: cicciobello
+userPassword: {SSHA}ayh1N6LQLwMiseE3MjHFxK+yB4Q6KC0i
+
+dn: cn=developers,ou=groups,dc=maxcrc,dc=com
+objectClass: posixGroup
+cn: developers
+gidNumber: 1001
