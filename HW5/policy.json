@@ -1,0 +1,111 @@
+{
+    "policy_id": "policy_di_esempio",
+    "rules": [
+        {
+            "rule_id": "allow_admins",
+            "effect": "Permit",
+            "role_condition": {
+                "attribute": "role",
+                "operator": "equals",
+                "value": "admin"
+            },
+            "resource_condition": {
+                "attribute": "resource",
+                "operator": "equals",
+                "value": "confidential"
+            },
+            "action_condition": {
+                "attribute": "action",
+                "operator": "equals",
+                "value": "rw"
+            }
+        },
+        {
+            "rule_id": "deny_guests_confidential",
+            "effect": "Deny",
+            "role_condition": {
+                "attribute": "role",
+                "operator": "equals",
+                "value": "guest"
+            },
+            "resource_condition": {
+                "attribute": "resource",
+                "operator": "equals",
+                "value": "confidential"
+            },
+            "action_condition": {
+                "attribute": "action",
+                "operator": "equals",
+                "value": "rw"
+            }
+        },
+        {
+            "rule_id": "allow_guests_public",
+            "effect": "Permit",
+            "role_condition": {
+                "attribute": "role",
+                "operator": "equals",
+                "value": "guest"
+            },
+            "resource_condition": {
+                "attribute": "resource",
+                "operator": "equals",
+                "value": "public"
+            },
+            "action_condition": {
+                "attribute": "action",
+                "operator": "equals",
+                "value": "r"
+            }
+        },
+        {
+            "rule_id": "deny_not_found_resource_guest",
+            "effect": "Deny",
+            "role_condition": {
+                "attribute": "role",
+                "operator": "equals",
+                "value": "guest"
+            },
+            "resource_condition": {
+                "attribute": "resource",
+                "operator": "equals",
+                "value": "not found"
+            },
+            "action_condition": {
+                "attribute": "action",
+                "operator": "equals",
+                "value": "rw"
+            }
+        },
+        {
+            "rule_id": "deny_not_found_resource_admin",
+            "effect": "Deny",
+            "role_condition": {
+                "attribute": "role",
+                "operator": "equals",
+                "value": "admin"
+            },
+            "resource_condition": {
+                "attribute": "resource",
+                "operator": "equals",
+                "value": "not found"
+            },
+            "action_condition": {
+                "attribute": "action",
+                "operator": "equals",
+                "value": "rw"
+            }
+        },
+        {
+            "rule_id": "deny_unauthenticated",
+            "effect": "Deny",
+            "role_condition": {
+                "attribute": "role",
+                "operator": "equals",
+                "value": "unauthenticated"
+            }
+        }
+    ],
+    "rule_combining_algorithm": "first-applicable"
+  }
+  

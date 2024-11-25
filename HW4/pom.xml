@@ -33,6 +33,11 @@
                     <keystorePass>abc</keystorePass>
                 </configuration>
             </plugin>
+
+            <plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
         </plugins>
     </build>
 
@@ -51,20 +56,6 @@
             <artifactId>vault-java-driver</artifactId>
             <version>4.0.0</version>
         </dependency>
-
-
-        <!-- Dipendenza per XACML -->
-        <dependency>
-            <groupId>org.ow2.authzforce</groupId>
-            <artifactId>authzforce-ce-core-pdp-api</artifactId>
-            <version>17.0.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.ow2.authzforce</groupId>
-            <artifactId>authzforce-ce-core-pdp-engine</artifactId>
-            <version>17.0.0</version>
-        </dependency>
-
 
     </dependencies>
 
