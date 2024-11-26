@@ -69,7 +69,6 @@ public class LDAPServlet extends HttpServlet {
             out.println(result);
         }
         catch (Exception e) {
-            e.printStackTrace(); // Stampa l'errore nel log del server
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Errore nel server: " + e.getMessage());
         }
     }

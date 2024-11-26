@@ -7,3 +7,5 @@
 Risorse/
 .gitignore
 HW3/apache-tomcat-11.0.0/
+.yml
+HW6\demo\src\main\resources\application.yml
