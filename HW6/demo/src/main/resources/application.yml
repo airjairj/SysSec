@@ -14,21 +14,23 @@ spring:
             redirect-uri: https://localhost:8443/login/oauth2/code/google
             authorization-grant-type: authorization_code
             client-name: Google
-          # keycloak:
-          #   client-id: <keycloak-client-id>
-          #   client-secret: <keycloak-client-secret>
-          #   scope:
-          #     - openid
-          #   redirect-uri: "{baseUrl}/login/oauth2/code/keycloak"
-          #   authorization-grant-type: authorization_code
-          #   client-name: Keycloak
+          keycloak:
+            client-id: my-webapp
+            client-secret: cQdQG9sBhsLjhBVIaZB05QjK05zS7DhD
+            scope:
+              - openid
+              - profile
+              - email
+            redirect-uri: "https://localhost:8443/login/oauth2/code/keycloak"
+            authorization-grant-type: authorization_code
+            client-name: Keycloak
         provider:
           google:
             authorization-uri: https://accounts.google.com/o/oauth2/auth
             token-uri: https://oauth2.googleapis.com/token
             user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
-          # keycloak:
-          #   issuer-uri: <keycloak-issuer-uri>
+          keycloak:
+            issuer-uri: http://localhost:8080/realms/master
 
 server:
   port: 8443

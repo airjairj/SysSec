@@ -58,7 +58,8 @@
         <div class="user-info" style="text-align: center;">
             <ul style="padding: 0;">
                 <li>Email: <span th:text="${email}">example@gmail.com</span></li>
-                <li>Full Name: <span th:text="${given_name} + ' ' + ${family_name}">John Doe</span></li>
+                <li th:if="${family_name != null}">Full Name: <span th:text="${given_name} + ' ' + ${family_name}">John Doe</span></li>
+                <li th:if="${family_name == null}">Full Name: <span th:text="${given_name}">John</span></li>
             </ul>
         </div>
 

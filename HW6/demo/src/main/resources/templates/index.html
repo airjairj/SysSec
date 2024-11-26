@@ -41,13 +41,30 @@
         .login-btn:hover {
             background-color: #357ae8;
         }
+        .login-btn-keycloak{
+            background-color: #646464; /* Colore di Google */
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        .login-btn-keygencloak:hover {
+            background-color: #414141;
+        }
     </style>
 </head>
 <body>
     <div class="container" style="height: auto; align-self: center;">
         <h1>Login</h1>
         <a href="/oauth2/authorization/google" class="login-btn">Login con Google</a>
-        <a href="/oauth2/authorization/keycloak" class="login-btn keycloak">Login con Keycloak</a>
+        <a href="/oauth2/authorization/keycloak" class="login-btn-keycloak">Login con Keycloak</a>
     </div>
 </body>
 </html>
