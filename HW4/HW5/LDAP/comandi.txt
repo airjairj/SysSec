@@ -2,4 +2,4 @@ cd C:\OpenLDAP
 slapd -f "C:\\OpenLDAP\\slapd.conf" -h "ldap://localhost:389 ldaps://localhost:636" -d 256
 slapcat -f slapd.conf
 
-slapadd -l user.ldif
+slapadd -l "C:\Users\hp\Documents\Esami In Corso\System Sec\Homework\SysSec\HW4\HW5\LDAP\base.ldif"

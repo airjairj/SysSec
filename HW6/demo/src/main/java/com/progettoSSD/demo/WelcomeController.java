@@ -29,4 +29,23 @@ public class WelcomeController {
 
             return "welcome"; // This will render the welcome.html page
     }
+
+    @GetMapping("/welcome-ldap")
+    public String welcomeLdap(@AuthenticationPrincipal OAuth2User principal, Model model) {
+        // Check if the user is authenticated
+        if (principal == null) {
+            return "redirect:/errror"; // If not authenticated, redirect to login page
+        }
+
+        // Retrieve user information from OAuth2User
+        Map<String, Object> attributes = principal.getAttributes();
+
+        // Add attributes to the model so they can be accessed in Thymeleaf
+        model.addAttribute("name", attributes.get("name"));
+        model.addAttribute("email", attributes.get("email"));
+        model.addAttribute("given_name", attributes.get("given_name"));
+        model.addAttribute("family_name", attributes.get("family_name"));
+
+        return "welcome-ldap"; // This will render the welcome-ldap.html page
+    }
 }

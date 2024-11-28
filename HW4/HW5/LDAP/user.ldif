@@ -1,6 +1,6 @@
-dn: uid=cicciobello,ou=users,dc=maxcrc,dc=com
+dn: uid=ciccioadmin,ou=admin,dc=maxcrc,dc=com
 objectClass: inetOrgPerson
-cn: Ciccio Bello
-sn: Bello
-uid: cicciobello
+cn: Ciccio Admin
+sn: Admin
+uid: ciccioadmin
 userPassword: {SSHA}saX8IWjJpi4VAfPopSVulcAJ1vRdu0lq

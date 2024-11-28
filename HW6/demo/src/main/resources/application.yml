@@ -1,4 +1,9 @@
 spring:
+  logging:
+    level:
+      org:
+        springframework:
+          security: DEBUG
   application:
     name: demo
   security:
@@ -30,7 +35,7 @@ spring:
             token-uri: https://oauth2.googleapis.com/token
             user-info-uri: https://www.googleapis.com/oauth2/v3/userinfo
           keycloak:
-            issuer-uri: http://localhost:8080/realms/master
+            issuer-uri: http://localhost:8080/realms/ProgettoSSD
 
 server:
   port: 8443

@@ -53,18 +53,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Welcome, <span th:text="${name}">User</span>!</h1>
-        
-        <div class="user-info" style="text-align: center;">
-            <ul style="padding: 0;">
-                <li>Email: <span th:text="${email}">example@gmail.com</span></li>
-                <li th:if="${family_name != null}">Full Name: <span th:text="${given_name} + ' ' + ${family_name}">John Doe</span></li>
-                <li th:if="${family_name == null}">Full Name: <span th:text="${given_name}">John</span></li>
-            </ul>
-        </div>
-
-        <a href="/" class="logout-btn">Logout</a>
-
+        <h1>Welcome, <span th:text=>User</span>!</h1>
     </div>
 </body>
 </html>

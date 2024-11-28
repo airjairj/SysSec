@@ -1,0 +1,4 @@
+com\gruppo\servlet\VaultService.class
+com\gruppo\servlet\LDAPServlet.class
+com\gruppo\servlet\VaultServlet.class
+com\gruppo\servlet\LDAPService.class
