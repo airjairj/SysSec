@@ -1,2 +1,0 @@
-conf/server.xml
-ROOT_base era prima chiamata ROOT

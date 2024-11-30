@@ -1,4 +1,0 @@
-dn: cn=developers,ou=groups,dc=maxcrc,dc=com
-objectClass: posixGroup
-cn: developers
-gidNumber: 1001
