@@ -1,0 +1,3 @@
+-- VAULT --
+Unseal Key: uKHmVz9jXhXSELmIKsaOX0k73Xyr76BDnu8ogFZeQG4=
+Root Token: root_token
