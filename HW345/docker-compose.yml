@@ -7,20 +7,31 @@ services:
       LDAP_DOMAIN: "example.com"
       LDAP_ADMIN_PASSWORD: "adminpassword"
       LDAP_TLS: "false"
-      LDAP_REMOVE_CONFIG_AFTER_SETUP: "false"
+      LDAP_TLS_CRT_FILENAME: "ldap-server.crt"
+      LDAP_TLS_KEY_FILENAME: "ldap-server.key"
+      LDAP_TLS_CA_CRT_FILENAME: "ldap-server.crt" # Use the same cert as CA for simplicity
     ports:
-      - "389:389"
+      - "389:389" # Porta LDAPS
+    volumes:
+      - ./ldap/certs:/container/service/slapd/assets/certs # Monta i certificati
 
   vault:
     image: hashicorp/vault:1.15.0
     container_name: vault
     environment:
-      VAULT_DEV_ROOT_TOKEN_ID: "root_token"
-      VAULT_DEV_LISTEN_ADDRESS: "0.0.0.0:8200"
+      VAULT_ADDR: "https://localhost:8200"
+      VAULT_CACERT: "/vault/certs/vault-server.crt"
+      VAULT_SKIP_VERIFY: "true"
+      VAULT_API_ADDR: "https://localhost:8200"  # Usa https:// per l'indirizzo dell'API
     ports:
       - "8200:8200"
     cap_add:
       - IPC_LOCK
+    volumes:
+      - ./vault/config:/vault/config
+      - ./vault/certs:/vault/certs
+      - ./vault/data:/vault/data
+    command: "vault server -config=/vault/config/config.hcl"
 
   webapp:
       build:

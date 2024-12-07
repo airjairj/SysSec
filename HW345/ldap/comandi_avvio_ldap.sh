@@ -29,3 +29,6 @@ member: cn=TIZIO_ADMIN,dc=example,dc=com" > /tmp/init.ldif
 ldapadd -x -H ldap://localhost:389 -D "cn=admin,dc=example,dc=com" -w adminpassword -f /tmp/init.ldif
 
 ldapsearch -x -H ldap://localhost:389 -D "cn=admin,dc=example,dc=com" -w adminpassword -b "dc=example,dc=com"
+
+# CERTIFICATI #
+openssl req -x509 -newkey rsa:2048 -keyout ldap-server.key -out ldap-server.crt -days 365 -nodes -subj "/C=US/ST=State/L=City/O=Org/CN=ldap" -addext "subjectAltName=DNS:ldap"

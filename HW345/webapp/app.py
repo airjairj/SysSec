@@ -1,13 +1,42 @@
 from flask import Flask, flash, render_template, request, redirect, session, jsonify
 import requests
 import secrets
-import os
+import vakt
+from vakt.rules import Eq, StartsWith, And, Greater, Less, Any # Importa tutto il set di regole di VAKT
+import urllib3
+
+urllib3.disable_warnings() # Serve perchè senza non funziona bene la webapp dato che i certificati sono auto firmati
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(32)
 
-VAULT_ADDR = "http://vault:8200"  # Usa HTTP se Vault è configurato senza HTTPS
+VAULT_ADDR = "https://vault:8200"  # Usa HTTP se Vault è configurato senza HTTPS
 VAULT_VERIFY = False  # Imposta su True se Vault è configurato con un certificato SSL valido
+
+# Definisci le policy in VAKT
+policy = vakt.Policy(
+    1,
+    actions=[Eq('Add')],
+    resources=[StartsWith('Secrets')],
+    subjects=[{'Role': Eq('amministratore')}],  # L'utente deve essere amministratore
+    effect=vakt.ALLOW_ACCESS,
+    description="""Consenti l'aggiunta dei segreti solo agli amministratori"""
+)
+'''
+policy = vakt.Policy(
+    2,
+    actions=[Eq('Add')],
+    resources=[StartsWith('Secrets')],
+    subjects=[{'Role': Eq('utente')}],  # L'utente deve essere amministratore
+    effect=vakt.DENY_ACCESS,
+    description="""Nega l'aggiunta dei segreti agli utenti"""
+)
+'''
+
+# Memorizza la policy in VAKT
+storage = vakt.MemoryStorage()
+storage.add(policy)
+guard = vakt.Guard(storage, vakt.RulesChecker())
 
 @app.route("/")
 def index():
@@ -103,42 +132,49 @@ def dashboard():
 
 @app.route("/add_secret", methods=["POST"])
 def add_secret():
-    if session.get("role") != "amministratore":
-        flash("Non hai i permessi per aggiungere segreti.", "error")
+
+    inquiry = vakt.Inquiry(
+        #TODO CHANGE THIS
+        action='Add',
+        resource='Secrets',
+        subject={'Role': session['role']},
+    )
+
+    if guard.is_allowed(inquiry):
+        secret_name = request.form.get("secret_name")
+        secret_value = request.form.get("secret_value")
+        username = session["username"] 
+
+        # URL per Vault
+        secret_url = f"{VAULT_ADDR}/v1/secret/data/{username}"
+        
+        # Header con il token Vault
+        headers = {
+            "X-Vault-Token": session["vault_token"],
+            "Content-Type": "application/json",
+            "accept": "application/json"
+        }
+        
+        # Payload per la richiesta
+        payload = {
+            "data": {
+                secret_name : secret_value
+            },
+            "options": {},
+            "version": 1
+        }
+
+        try:
+            # Effettua la richiesta POST
+            response = requests.post(secret_url, headers=headers, json=payload, verify=VAULT_VERIFY)
+            response.raise_for_status()
+            flash("Segreto aggiunto con successo.", "success")
+        except requests.exceptions.RequestException as e:
+            flash(f"Errore nell'aggiunta del segreto: {str(e)}", "error")
         return redirect("/dashboard")
-
-    secret_name = request.form.get("secret_name")
-    secret_value = request.form.get("secret_value")
-    username = session["username"] 
-
-    # URL per Vault
-    secret_url = f"{VAULT_ADDR}/v1/secret/data/{username}"
-    
-    # Header con il token Vault
-    headers = {
-        "X-Vault-Token": session["vault_token"],
-        "Content-Type": "application/json",
-        "accept": "application/json"
-    }
-    
-    # Payload per la richiesta
-    payload = {
-        "data": {
-            secret_name : secret_value
-        },
-        "options": {},
-        "version": 1
-    }
-
-    try:
-        # Effettua la richiesta POST
-        response = requests.post(secret_url, headers=headers, json=payload, verify=VAULT_VERIFY)
-        response.raise_for_status()
-        flash("Segreto aggiunto con successo.", "success")
-    except requests.exceptions.RequestException as e:
-        flash(f"Errore nell'aggiunta del segreto: {str(e)}", "error")
-
-    return redirect("/dashboard")
+    else:
+        flash("Non hai i permessi per questa azione", "error")
+        return redirect("/dashboard")
 
 @app.route("/logout")
 def logout():
