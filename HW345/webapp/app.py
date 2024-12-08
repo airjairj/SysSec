@@ -1,14 +1,16 @@
-from flask import Flask, flash, render_template, request, redirect, session, jsonify
+from flask import Flask, flash, render_template, request, redirect, session,  url_for
 import requests
 import secrets
 import vakt
 from vakt.rules import Eq, StartsWith, And, Greater, Less, Any # Importa tutto il set di regole di VAKT
 import urllib3
+from datetime import timedelta, datetime
 
 urllib3.disable_warnings() # Serve perchè senza non funziona bene la webapp dato che i certificati sono auto firmati
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(32)
+app.permanent_session_lifetime = timedelta(minutes=1)  # AC-12: Inattività massima, impostata ad 1 minuti per testare
 
 VAULT_ADDR = "https://vault:8200"  # Usa HTTP se Vault è configurato senza HTTPS
 VAULT_VERIFY = False  # Imposta su True se Vault è configurato con un certificato SSL valido
@@ -37,6 +39,22 @@ policy = vakt.Policy(
 storage = vakt.MemoryStorage()
 storage.add(policy)
 guard = vakt.Guard(storage, vakt.RulesChecker())
+
+
+@app.before_request
+def check_inactivity():
+    session.permanent = True
+    last_activity = session.get('last_activity')
+    now = datetime.now()
+
+    if last_activity:
+        elapsed_time = now - datetime.strptime(last_activity, "%Y-%m-%d %H:%M:%S")
+        if elapsed_time > app.permanent_session_lifetime:
+            session.clear()
+            return redirect(url_for('logout'))
+
+    # Aggiorna il timestamp per l'attività corrente
+    session['last_activity'] = now.strftime("%Y-%m-%d %H:%M:%S")
 
 @app.route("/")
 def index():

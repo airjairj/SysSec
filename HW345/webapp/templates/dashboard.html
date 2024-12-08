@@ -108,6 +108,27 @@
         }
 
     </style>
+    <script>
+        // JavaScript per il logout automatico dopo inattività
+        let timeout;
+        const logoutTime = 30 * 60 * 1000; // 30 minuti in millisecondi
+
+        function resetTimer() {
+            clearTimeout(timeout);
+            timeout = setTimeout(() => {
+                alert("Sei stato disconnesso per inattività.");
+                window.location.href = "/logout";
+            }, logoutTime);
+        }
+
+        // Avvia il timer quando la pagina viene caricata
+        window.onload = resetTimer;
+
+        // Rileva attività dell'utente e reimposta il timer
+        window.onmousemove = resetTimer;
+        window.onkeydown = resetTimer;
+        window.ontouchstart = resetTimer; // Per dispositivi touch
+    </script>
 </head>
 <body>
     <h2>Benvenuto, {{ username }}!</h2>
