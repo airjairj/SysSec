@@ -4745,4 +4745,23 @@
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
 
+
+
+    <!-- ===================== MODIFICHE DI SICUREZZA ===================== -->
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>SecureApp</web-resource-name>
+            <url-pattern>/*</url-pattern>
+
+            <web-resource-name>DisableMethods</web-resource-name>
+                <url-pattern>/*</url-pattern>
+                <http-method>TRACE</http-method>
+                <http-method>OPTIONS</http-method>
+        </web-resource-collection>
+        <user-data-constraint>
+            <transport-guarantee>CONFIDENTIAL</transport-guarantee>
+        </user-data-constraint>
+    </security-constraint>
+
+
 </web-app>
