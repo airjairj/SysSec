@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aggiungi Nota</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #7acbf3, #ac7ae3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .note-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            align-items: center;
+        }
+
+        button, .back-btn, .dashboard-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+        
+
+        button {
+            background-color: #5ac4fa;
+            color: #fff;
+        }
+
+        button:hover {
+            background-color: #6ab0d8;
+        }
+
+        .back-btn, .dashboard-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .back-btn:hover, .dashboard-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <h1>Aggiungi una Nota</h1>
+
+    <!-- Contenitore della form -->
+    <div class="note-container">
+        <form method="POST" class="note-form">
+            <label for="content">Contenuto della Nota:</label>
+            <textarea name="content" id="content" rows="4" cols="50"></textarea><br><br>
+            <button type="submit">Aggiungi Nota</button>
+        </form>
+
+        <!-- Bottoni per tornare alla dashboard o alle note -->
+        <a href="/tabella" class="back-btn">Torna alle Note</a>
+        <a href="/dashboard" class="dashboard-btn">Back to Dashboard</a>
+    </div>
+
+</body>
+</html>

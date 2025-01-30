@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #7acbf3, #ac7ae3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+
+        .note-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            max-width: 400px;
+        }
+
+        h1 {
+            font-size: 24px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: #333;
+            font-weight: bold;
+        }
+
+        textarea {
+            width: 100%;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+            align-items: center;
+        }
+
+        button, .back-btn {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        .dashboard-btn {
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-top: 10px;
+        }
+
+        button {
+            background-color: #5ac4fa;
+            color: #fff;
+        }
+
+        button:hover {
+            background-color: #6ab0d8;
+        }
+
+        .back-btn, .dashboard-btn {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .back-btn:hover, .dashboard-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+
+    <title>Test DB</title>
+</head>
+<body>
+    <h1>Test DB</h1>
+
+    <!-- Sezione per i messaggi flash -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
+
+    <div class="note-container">
+        {% if notes %}
+            {% for note in notes %}
+                <div class="note-card">
+                    <h3>Nota scritta da: {{ note.username }}</h3>
+                    <p>{{ note.content }}</p>
+                    <div class="note-actions">
+                        <a href="/edit-note/{{ note.id }}" class="note-btn">Modifica</a>
+                        <form action="/delete-note/{{ note.id }}" method="POST" style="display:inline;">
+                            <button type="submit" class="note-btn delete-btn" style="border-radius: 10px; padding: 5px 10px;">Elimina</button>
+                        </form>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Non hai ancora aggiunto nessuna nota.</p>
+        {% endif %}
+    </div>
+
+    <a href="/add-note" class="card-btn">Aggiungi una Nuova Nota</a>
+    <a href="/dashboard" class="dashboard-btn">Torna alla Dashboard</a>
+</body>
+</html>

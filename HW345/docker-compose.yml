@@ -11,7 +11,7 @@ services:
       LDAP_TLS_KEY_FILENAME: "ldap-server.key"
       LDAP_TLS_CA_CRT_FILENAME: "ldap-server.crt" # Use the same cert as CA for simplicity
     ports:
-      - "389:389" # Porta LDAPS
+      - "3890:389" # Porta LDAPS
     volumes:
       - ./ldap/certs:/container/service/slapd/assets/certs # Monta i certificati
 
@@ -42,3 +42,5 @@ services:
       depends_on:
         - ldap
         - vault
+      volumes:
+        - ./webapp/data:/app/data  # Monta una cartella nel container

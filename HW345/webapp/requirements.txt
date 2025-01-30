@@ -2,3 +2,4 @@ flask
 ldap3
 hvac
 vakt
+flask_SQLAlchemy

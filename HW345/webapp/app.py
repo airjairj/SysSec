@@ -5,16 +5,18 @@ import vakt
 from vakt.rules import Eq, StartsWith, And, Greater, Less, Any # Importa tutto il set di regole di VAKT
 import urllib3
 from datetime import timedelta, datetime
+from flask_sqlalchemy import SQLAlchemy
 
 urllib3.disable_warnings() # Serve perchè senza non funziona bene la webapp dato che i certificati sono auto firmati
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(32)
-app.permanent_session_lifetime = timedelta(minutes=1)  # AC-12: Inattività massima, impostata ad 1 minuti per testare
+app.permanent_session_lifetime = timedelta(minutes=10)  # AC-12: Inattività massima, impostata ad 10 minuti per testare
 
 VAULT_ADDR = "https://vault:8200"  # Usa HTTP se Vault è configurato senza HTTPS
 VAULT_VERIFY = False  # Imposta su True se Vault è configurato con un certificato SSL valido
 
+# VAKT
 # Definisci le policy in VAKT
 policy = vakt.Policy(
     1,
@@ -39,6 +41,27 @@ policy = vakt.Policy(
 storage = vakt.MemoryStorage()
 storage.add(policy)
 guard = vakt.Guard(storage, vakt.RulesChecker())
+
+
+# DB
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////app/data/notes.db'
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+db = SQLAlchemy(app)
+
+# Struttura della tabella delle note
+class Tabella(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    content = db.Column(db.String(500), nullable=False)
+    username = db.Column(db.String(100), nullable=False)
+
+    def __repr__(self):
+        return f"<Tabella {self.id} - {self.username}>"
+
+# Creazione delle tabelle
+with app.app_context():
+    db.create_all()
+
+
 
 
 @app.before_request
@@ -193,6 +216,105 @@ def add_secret():
     else:
         flash("Non hai i permessi per questa azione", "error")
         return redirect("/dashboard")
+
+
+@app.route("/tabella", methods=["GET", "POST"])
+def notes():
+    if "vault_token" not in session:
+        return redirect("/")
+
+    username = session["username"]
+    role = session.get("role", "standard")
+
+    if role == "admin":
+        all_notes = Tabella.query.all()
+    else:
+        all_notes = Tabella.query.filter_by(username=username).all()
+
+    return render_template("tabella.html", notes=all_notes, role=role)
+
+@app.route("/add-note", methods=["GET", "POST"])
+def add_note():
+    if "vault_token" not in session:
+        return redirect("/")
+
+    role = session.get("role", "standard")
+
+    if request.method == "POST":
+        #TODO
+        #inquiry = vakt.Inquiry()
+
+        #if guard.is_allowed(inquiry):
+        content = request.form.get("content")
+        username = session["username"]
+        if content:
+            new_note = Tabella(content=content, username=username)
+            db.session.add(new_note)
+            db.session.commit()
+            
+            flash("Nota aggiunta con successo!", "success")
+            return redirect("/tabella")
+        #else:
+            #flash("Non hai i permessi per aggiungere una nota in questo momento.", "error")
+
+    return render_template("add_note.html", role=role)
+
+@app.route("/edit-note/<int:id>", methods=["GET", "POST"])
+def edit_note(id):
+    if "vault_token" not in session:
+        return redirect("/")
+
+    note = Tabella.query.get_or_404(id)
+    username = session["username"]
+    role = session.get("role", "standard")
+
+    if note.username != username and role != "admin":
+        flash("Non hai i permessi per modificare questa nota.", "error")
+        return redirect("/tabella")
+
+    if request.method == "POST":
+        #TODO
+        #inquiry = vakt.Inquiry()
+
+        #if guard.is_allowed(inquiry):
+        new_content = request.form.get("content")
+        if new_content:
+            note.content = new_content
+            db.session.commit()
+            
+            
+            flash("Nota modificata con successo!", "success")
+            return redirect("/tabella")
+        #else:
+            #flash("Non hai i permessi per modificare questa nota in questo momento.", "error")
+
+    return render_template("edit_note.html", note=note)
+
+@app.route("/delete-note/<int:id>", methods=["POST"])
+def delete_note(id):
+    if "vault_token" not in session:
+        return redirect("/")
+
+    note = Tabella.query.get_or_404(id)
+    username = session["username"]
+    role = session.get("role", "standard")
+
+    if note.username != username and role != "admin":
+        flash("Non hai i permessi per eliminare questa nota.", "error")
+        return redirect("/tabella")
+
+    #TODO
+    #inquiry = vakt.Inquiry()
+
+    #if guard.is_allowed(inquiry):
+    db.session.delete(note)
+    db.session.commit()
+
+    flash("Nota eliminata con successo!", "success")
+    return redirect("/tabella")
+    #else:
+        #flash("Non hai i permessi per eliminare questa nota in questo momento.", "error")
+        #return redirect("/tabella")
 
 @app.route("/logout")
 def logout():
