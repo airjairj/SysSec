@@ -18,28 +18,61 @@ VAULT_VERIFY = False  # Imposta su True se Vault è configurato con un certifica
 
 # VAKT
 # Definisci le policy in VAKT
-policy = vakt.Policy(
-    1,
-    actions=[Eq('Add')],
-    resources=[StartsWith('Secrets')],
-    subjects=[{'Role': Eq('amministratore')}],  # L'utente deve essere amministratore
-    effect=vakt.ALLOW_ACCESS,
-    description="""Consenti l'aggiunta dei segreti solo agli amministratori"""
-)
-'''
-policy = vakt.Policy(
-    2,
-    actions=[Eq('Add')],
-    resources=[StartsWith('Secrets')],
-    subjects=[{'Role': Eq('utente')}],  # L'utente deve essere amministratore
-    effect=vakt.DENY_ACCESS,
-    description="""Nega l'aggiunta dei segreti agli utenti"""
-)
-'''
+policies = [
+    vakt.Policy(
+        1,
+        actions=[Eq('Add')],
+        resources=[StartsWith('Ordine')],
+        subjects=[{'Role': Eq('amministratore')}],
+        effect=vakt.ALLOW_ACCESS,
+        description="""Consenti l'aggiunta di ordini agli amministratori"""
+    ),
+    vakt.Policy(
+        2,
+        actions=[Eq('Add')],
+        resources=[StartsWith('Ordine')],
+        subjects=[{'Role': Eq('utente')}],
+        effect=vakt.ALLOW_ACCESS,
+        description="""Consenti l'aggiunta di ordini agli utenti"""
+    ),
+    vakt.Policy(
+        3,
+        actions=[Eq('Delete')],
+        resources=[StartsWith('Ordine')],
+        subjects=[{'Role': Eq('amministratore')}],
+        effect=vakt.ALLOW_ACCESS,
+        description="""Consenti l'eliminazione di ordini agli amministratori"""
+    ),
+    vakt.Policy(
+        4,
+        actions=[Eq('Delete')],
+        resources=[StartsWith('Ordine')],
+        subjects=[{'Role': Eq('utente')}],
+        effect=vakt.DENY_ACCESS,
+        description="""Non consentire l'eliminazione di ordini agli utenti"""
+    ),
+    vakt.Policy(
+        5,
+        actions=[Eq('Edit')],
+        resources=[StartsWith('Ordine')],
+        subjects=[{'Role': Eq('amministratore')}],
+        effect=vakt.ALLOW_ACCESS,
+        description="""Consenti la modifica di ordini agli amministratori"""
+    ),
+    vakt.Policy(
+        6,
+        actions=[Eq('Edit')],
+        resources=[StartsWith('Ordine')],
+        subjects=[{'Role': Eq('utente')}],
+        effect=vakt.DENY_ACCESS,
+        description="""Non consentire la modifica di ordini agli utenti"""
+    )
+]
 
-# Memorizza la policy in VAKT
+# Memorizza le policy in VAKT
 storage = vakt.MemoryStorage()
-storage.add(policy)
+for policy in policies:
+    storage.add(policy)
 guard = vakt.Guard(storage, vakt.RulesChecker())
 
 
@@ -127,137 +160,53 @@ def login():
         return redirect("/dashboard")
     
     except requests.exceptions.RequestException as e:
-        flash(f"Errore durante il login: {str(e)}", "error")
+        flash(f"Credenziali errate", "error")
         return redirect("/")
-
 
 @app.route("/dashboard", methods=["GET", "POST"])
-def dashboard():
-    if "vault_token" not in session:
-        return redirect("/")
-
-    username = session["username"]
-    role = session.get("role")
-    secrets_list = []
-
-    # URL per elencare tutti i segreti
-    list_url = f"{VAULT_ADDR}/v1/secret/metadata/"
-    headers = {"X-Vault-Token": session["vault_token"], "accept": "application/json"}
-
-    try:
-        # Effettua la richiesta LIST per ottenere tutte le chiavi a livello principale
-        list_response = requests.request("LIST", list_url, headers=headers, verify=VAULT_VERIFY)
-        list_response.raise_for_status()
-
-        # Recupera la lista delle chiavi dai metadati
-        keys = list_response.json().get("data", {}).get("keys", [])
-        
-        # Itera sulle chiavi per ottenere i valori dei segreti
-        for key in keys:
-            secret_url = f"{VAULT_ADDR}/v1/secret/data/{key.strip('/')}"
-            try:
-                secret_response = requests.get(secret_url, headers=headers, verify=VAULT_VERIFY)
-                secret_response.raise_for_status()
-                secret_data = secret_response.json().get("data", {}).get("data", {})
-                
-                # Aggiungi il segreto alla lista in formato "key: value"
-                secrets_list.append({key: secret_data})
-            except requests.exceptions.RequestException as e:
-                flash(f"Errore nel recupero del segreto {key}: {str(e)}", "error")
-
-    except requests.exceptions.RequestException as e:
-        flash(f"Errore nel recupero della lista dei segreti: {str(e)}", "error")
-
-    return render_template("dashboard.html", username=username, role=role, secrets=secrets_list)
-
-
-@app.route("/add_secret", methods=["POST"])
-def add_secret():
-
-    inquiry = vakt.Inquiry(
-        #TODO CHANGE THIS
-        action='Add',
-        resource='Secrets',
-        subject={'Role': session['role']},
-    )
-
-    if guard.is_allowed(inquiry):
-        secret_name = request.form.get("secret_name")
-        secret_value = request.form.get("secret_value")
-        username = session["username"] 
-
-        # URL per Vault
-        secret_url = f"{VAULT_ADDR}/v1/secret/data/{username}"
-        
-        # Header con il token Vault
-        headers = {
-            "X-Vault-Token": session["vault_token"],
-            "Content-Type": "application/json",
-            "accept": "application/json"
-        }
-        
-        # Payload per la richiesta
-        payload = {
-            "data": {
-                secret_name : secret_value
-            },
-            "options": {},
-            "version": 1
-        }
-
-        try:
-            # Effettua la richiesta POST
-            response = requests.post(secret_url, headers=headers, json=payload, verify=VAULT_VERIFY)
-            response.raise_for_status()
-            flash("Segreto aggiunto con successo.", "success")
-        except requests.exceptions.RequestException as e:
-            flash(f"Errore nell'aggiunta del segreto: {str(e)}", "error")
-        return redirect("/dashboard")
-    else:
-        flash("Non hai i permessi per questa azione", "error")
-        return redirect("/dashboard")
-
-
 @app.route("/tabella", methods=["GET", "POST"])
 def notes():
     if "vault_token" not in session:
         return redirect("/")
 
     username = session["username"]
-    role = session.get("role", "standard")
+    role = session.get("role", "utente")
 
-    if role == "admin":
+    if role == "amministratore":
         all_notes = Tabella.query.all()
     else:
         all_notes = Tabella.query.filter_by(username=username).all()
 
-    return render_template("tabella.html", notes=all_notes, role=role)
+    return render_template("tabella.html", notes=all_notes)
 
 @app.route("/add-note", methods=["GET", "POST"])
 def add_note():
     if "vault_token" not in session:
         return redirect("/")
 
-    role = session.get("role", "standard")
-
     if request.method == "POST":
-        #TODO
-        #inquiry = vakt.Inquiry()
+        inquiry = vakt.Inquiry(
+            action="Add",
+            resource="Ordine",
+            subject={"Role": session["role"]},
+        )
 
-        #if guard.is_allowed(inquiry):
-        content = request.form.get("content")
-        username = session["username"]
-        if content:
-            new_note = Tabella(content=content, username=username)
-            db.session.add(new_note)
-            db.session.commit()
-            
-            flash("Nota aggiunta con successo!", "success")
+        if guard.is_allowed(inquiry):
+            content = request.form.get("content")
+            username = session["username"]
+            if content:
+                new_note = Tabella(content=content, username=username)
+                db.session.add(new_note)
+                db.session.commit()
+                
+                flash("Nota aggiunta con successo!", "success")
+                return redirect("/tabella")
+        else:
+            flash("Non hai i permessi per aggiungere una nota in questo momento.", "error")
             return redirect("/tabella")
-        #else:
-            #flash("Non hai i permessi per aggiungere una nota in questo momento.", "error")
 
-    return render_template("add_note.html", role=role)
+
+    return render_template("add_note.html")
 
 @app.route("/edit-note/<int:id>", methods=["GET", "POST"])
 def edit_note(id):
@@ -265,28 +214,26 @@ def edit_note(id):
         return redirect("/")
 
     note = Tabella.query.get_or_404(id)
-    username = session["username"]
-    role = session.get("role", "standard")
-
-    if note.username != username and role != "admin":
-        flash("Non hai i permessi per modificare questa nota.", "error")
-        return redirect("/tabella")
 
     if request.method == "POST":
-        #TODO
-        #inquiry = vakt.Inquiry()
+        inquiry = vakt.Inquiry(
+            action="Edit",
+            resource="Ordine",
+            subject={"Role": session["role"]},
+        )
 
-        #if guard.is_allowed(inquiry):
-        new_content = request.form.get("content")
-        if new_content:
-            note.content = new_content
-            db.session.commit()
-            
-            
-            flash("Nota modificata con successo!", "success")
+        if guard.is_allowed(inquiry):
+            new_content = request.form.get("content")
+            if new_content:
+                note.content = new_content
+                db.session.commit()
+                
+                
+                flash("Nota modificata con successo!", "success")
+                return redirect("/tabella")
+        else:
+            flash("Non hai i permessi per modificare questa nota in questo momento.", "error")
             return redirect("/tabella")
-        #else:
-            #flash("Non hai i permessi per modificare questa nota in questo momento.", "error")
 
     return render_template("edit_note.html", note=note)
 
@@ -296,25 +243,22 @@ def delete_note(id):
         return redirect("/")
 
     note = Tabella.query.get_or_404(id)
-    username = session["username"]
-    role = session.get("role", "standard")
 
-    if note.username != username and role != "admin":
-        flash("Non hai i permessi per eliminare questa nota.", "error")
+    inquiry = vakt.Inquiry(
+        action='Delete',
+        resource='Ordine',
+        subject={'Role': session['role']},
+    )
+
+    if guard.is_allowed(inquiry):
+        db.session.delete(note)
+        db.session.commit()
+
+        flash("Nota eliminata con successo!", "success")
         return redirect("/tabella")
-
-    #TODO
-    #inquiry = vakt.Inquiry()
-
-    #if guard.is_allowed(inquiry):
-    db.session.delete(note)
-    db.session.commit()
-
-    flash("Nota eliminata con successo!", "success")
-    return redirect("/tabella")
-    #else:
-        #flash("Non hai i permessi per eliminare questa nota in questo momento.", "error")
-        #return redirect("/tabella")
+    else:
+        flash("Non hai i permessi per eliminare questa nota in questo momento.", "error")
+        return redirect("/tabella")
 
 @app.route("/logout")
 def logout():

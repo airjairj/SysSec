@@ -100,16 +100,19 @@ body {
         <input type="password" id="password" name="password" required>
 
         <button type="submit">Login</button>
-
-        {% with messages = get_flashed_messages(with_categories=true) %}
-            {% if messages %}
-                <ul>
-                    {% for category, message in messages %}
-                        <li class="{{ category }}"></li>
-                    {% endfor %}
-                </ul>
-            {% endif %}
-        {% endwith %}
     </form>
+
+        <!-- Sezione per i messaggi flash -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            <div class="flash-messages">
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            </div>
+        {% endif %}
+    {% endwith %}
 </body>
 </html>

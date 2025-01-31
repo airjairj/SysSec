@@ -122,7 +122,7 @@
                     <h3>Nota scritta da: {{ note.username }}</h3>
                     <p>{{ note.content }}</p>
                     <div class="note-actions">
-                        <a href="/edit-note/{{ note.id }}" class="note-btn">Modifica</a>
+                        <a href="/edit-note/{{ note.id }}" class="note-btn delete-btn">Modifica</a>
                         <form action="/delete-note/{{ note.id }}" method="POST" style="display:inline;">
                             <button type="submit" class="note-btn delete-btn" style="border-radius: 10px; padding: 5px 10px;">Elimina</button>
                         </form>
@@ -134,7 +134,7 @@
         {% endif %}
     </div>
 
-    <a href="/add-note" class="card-btn">Aggiungi una Nuova Nota</a>
-    <a href="/dashboard" class="dashboard-btn">Torna alla Dashboard</a>
+    <a href="/add-note" class="dashboard-btn">Aggiungi una Nuovo ordine</a>
+    <a href="/logout" class="dashboard-btn">Effettua il logout</a>
 </body>
 </html>
