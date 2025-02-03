@@ -38,9 +38,9 @@ services:
         context: ./webapp
       container_name: webapp
       ports:
-        - "5000:5000"
+        - "5173:5173"
       depends_on:
         - ldap
         - vault
       volumes:
-        - ./webapp/data:/app/data  # Monta una cartella nel container
+        - ./webapp/data:/Users/francescoavallone/Desktop/SysSec/HW345/webapp/data # Monta una cartella nel container

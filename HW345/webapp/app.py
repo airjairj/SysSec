@@ -6,15 +6,26 @@ from vakt.rules import Eq, StartsWith, And, Greater, Less, Any # Importa tutto i
 import urllib3
 from datetime import timedelta, datetime
 from flask_sqlalchemy import SQLAlchemy
+from authlib.integrations.flask_client import OAuth
+from authlib.jose import jwt
 
 urllib3.disable_warnings() # Serve perchè senza non funziona bene la webapp dato che i certificati sono auto firmati
 
 app = Flask(__name__)
 app.secret_key = secrets.token_hex(32)
 app.permanent_session_lifetime = timedelta(minutes=10)  # AC-12: Inattività massima, impostata ad 10 minuti per testare
-
-VAULT_ADDR = "https://vault:8200"  # Usa HTTP se Vault è configurato senza HTTPS
+oauth = OAuth(app)
+VAULT_ADDR = "https://localhost:8200"  # Usa HTTP se Vault è configurato senza HTTPS
 VAULT_VERIFY = False  # Imposta su True se Vault è configurato con un certificato SSL valido
+
+oauth.register(
+    name="google",
+    client_id="292219212098-q10f6k4mgjkp8lj7v0drpu0hqdpsrqfr.apps.googleusercontent.com",
+    client_secret="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",
+    server_metadata_url="https://accounts.google.com/.well-known/openid-configuration",
+    redirect_uri='https://localhost:5173/callback',
+    client_kwargs={"scope": "openid email profile"},
+)
 
 # VAKT
 # Definisci le policy in VAKT
@@ -74,10 +85,11 @@ storage = vakt.MemoryStorage()
 for policy in policies:
     storage.add(policy)
 guard = vakt.Guard(storage, vakt.RulesChecker())
+app = Flask(__name__)
 
 
 # DB
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////app/data/notes.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:////Users/francescoavallone/Desktop/UNIVERSITA/SystemSecurity/SysSec/HW345/webapp/data/notes.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
@@ -161,7 +173,37 @@ def login():
     
     except requests.exceptions.RequestException as e:
         flash(f"Credenziali errate", "error")
+        print(url)
+        print(username + password)
         return redirect("/")
+    
+@app.route('/loginOPENID')
+def loginOPENID():
+    nonce = secrets.token_urlsafe(16)
+    session["oauth_state"] = {"nonce": nonce}
+    return oauth.google.authorize_redirect(url_for("callback", _external=True), nonce=nonce)
+
+@app.route("/callback")
+def callback():
+    token = oauth.google.authorize_access_token()
+    nonce = session.get("oauth_state", {}).get("nonce")
+    user_info = oauth.google.parse_id_token(token, nonce=nonce)
+
+    session['user'] = user_info
+    session["username"] = user_info["name"] + " (" + user_info["email"] +")"
+    session["role"] = "utente"
+
+    url = f"{VAULT_ADDR}/v1/auth/jwt/login"
+    headers = {"Content-Type": "application/json"}
+    payload = {"role": "utente", "jwt": token["id_token"]}
+
+    response = requests.post(url, json=payload, headers=headers, verify=False)
+
+    data = response.json()
+
+    session["vault_token"] = data["auth"]["client_token"]
+    
+    return redirect("/dashboard")
 
 @app.route("/dashboard", methods=["GET", "POST"])
 @app.route("/tabella", methods=["GET", "POST"])
@@ -267,5 +309,5 @@ def logout():
 
 if __name__ == "__main__":
     # Configura il contesto SSL se necessario (modifica con i tuoi percorsi)
-    context=('/certs/server.crt', '/certs/server.key')
-    app.run(debug=True, host="0.0.0.0", port=5000, ssl_context=context)
+    context=('/Users/francescoavallone/Desktop/UNIVERSITA/SystemSecurity/SysSec/HW345/cert1.crt', '/Users/francescoavallone/Desktop/UNIVERSITA/SystemSecurity/SysSec/HW345/key1.key')
+    app.run(debug=True, host="localhost", port=5173, ssl_context=context)

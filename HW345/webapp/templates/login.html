@@ -66,6 +66,14 @@ body {
             background-color: #6ab0d8;
         }
 
+        .secondary-button {
+            background-color: #6c757d;
+        }
+
+        .secondary-button:hover {
+            background-color: #5a6268;
+        }
+
         ul {
             list-style-type: none;
             padding: 0;
@@ -99,8 +107,12 @@ body {
         <label for="password">Password:</label>
         <input type="password" id="password" name="password" required>
 
-        <button type="submit">Login</button>
+        <button type="submit"  style="margin-bottom: 10px;">Login</button>
+        <button type="button" class="secondary-button" style="margin-top: 10px;" onclick="window.location.href='/loginOPENID'">
+            Login with OPENID
+        </button>
     </form>
+    
 
         <!-- Sezione per i messaggi flash -->
         {% with messages = get_flashed_messages(with_categories=true) %}
